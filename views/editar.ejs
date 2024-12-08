@@ -1,0 +1,22 @@
+<!-- views/editar.ejs -->
+
+<!-- Inclui o cabeçalho da página com título dinâmico -->
+<%- include('partials/header', { pageTitle: 'Editar Lista' }) %>
+
+<body>
+  <main>
+    <h1>Editar Tarefa</h1>
+    <!-- Formulário para editar uma tarefa específica -->
+    <form action="/editar/<%= tarefa.id %>" method="POST">
+      <!-- Campo de entrada para a descrição da tarefa preenchido com a descrição atual da tarefa -->
+      <input type="text" name="descricao" value="<%= tarefa.descricao %>" required>
+      <!-- Checkbox para marcar se a tarefa está concluída ou não -->
+      <input type="checkbox" name="concluida" <%= tarefa.concluida ? 'checked' : '' %>> Concluída
+      <button type="submit">Salvar</button>
+    </form>
+    <a href="/">Voltar</a>
+  </main>
+    
+  <%- include('partials/footer') %> <!-- Inclui o rodapé da página -->
+</body>
+</html>

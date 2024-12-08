@@ -1,0 +1,26 @@
+<!-- views/index.ejs -->
+
+<!-- Inclui o cabeçalho da página com título dinâmico -->
+<%- include('partials/header', { pageTitle: 'Lista de Tarefas' }) %>
+
+<body>
+  <main>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+      <% tarefas.forEach(tarefa => { %>
+        <li>
+          <%= tarefa.descricao %> - <%= tarefa.concluida ? 'Concluída' : 'Pendente' %>
+          <a href="/editar/<%= tarefa.id %>">Editar</a>
+          <form action="/excluir/<%= tarefa.id %>" method="POST" style="display:inline;">
+            <button type="submit">Excluir</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+    <h2>Criar Nova Tarefa</h2>
+    <a href="/criar">Adicionar Nova Tarefa</a>
+  </main>
+    
+  <%- include('partials/footer') %> <!-- Inclui o rodapé da página -->
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!-- views/criar.ejs -->
+
+<!-- Inclui o cabeçalho da página com título dinâmico -->
+<%- include('partials/header', { pageTitle: 'Criar Lista' }) %>
+
+<body>
+  <main>
+    <h1>Criar Nova Tarefa</h1>
+    <form action="/criar" method="POST">
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" required>
+      <button type="submit">Adicionar</button>
+    </form>
+    <a href="/">Voltar</a>
+  </main>
+
+  <%- include('partials/footer') %> <!-- Inclui o rodapé da página -->
+</body>
+</html>
